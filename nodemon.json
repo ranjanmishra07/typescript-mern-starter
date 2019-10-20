@@ -2,5 +2,5 @@
     "watch": ["src"],
     "ignore": ["client"],
     "ext": "ts",
-    "exec": "ts-node src/index.ts"
+    "exec": "ts-node server/index.ts"
   }

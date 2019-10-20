@@ -3,14 +3,8 @@ import path from 'path';
 const app = express();
 
 app.use('/', express.static(path.join(__dirname, '../client/build')));
-app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, '../client/build/index.html'), function (err) {
-        if (err) {
-            res.status(500).send(err)
-        }
-    })
-})
-app.get('/api', (_req: any,res: any) => {
+app.get('/api', (req: any,res: any) => {
+    console.log('messsage', req.message.length);
     res.json({message: 'its working'})
 })
 

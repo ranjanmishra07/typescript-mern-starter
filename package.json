@@ -2,12 +2,14 @@
   "name": "worflow",
   "version": "1.0.0",
   "description": "",
-  "main": "build/src/index.js",
+  "main": "dist/server/index.js",
   "scripts": {
     "react-install": "npm install --prefix client",
-    "build": "node .",
+    "clean": "rm -rf dist && rm -rf client/build",
+    "build-server": "tsc -p server",
+    "build-client": "concurrently --kill-others-on-fail \"cd client && npm run build && cd -  && mkdir -p dist/client && cp -a client/build/. dist/client/build/\"",
     "start": "ts-node -r ./src/index.ts",
-    "start-prod": "npm run build --prefix client && npm start",
+    "start-prod": "concurrently --kill-others-on-fail \"npm run clean && npm run build-server && npm run build-client && node .\"",
     "dev": "concurrently --kill-others-on-fail \"nodemon\" \"npm start --prefix client\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "cd server && eslint **/*.ts --ignore-pattern extlib.d.ts && cd client && eslint client/**/*.tsx?"
