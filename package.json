@@ -9,7 +9,7 @@
     "build-server": "tsc -p server",
     "build-client": "concurrently --kill-others-on-fail \"cd client && npm run build && cd -  && mkdir -p dist/client && cp -a client/build/. dist/client/build/\"",
     "start": "ts-node -r ./src/index.ts",
-    "start-prod": "concurrently --kill-others-on-fail \"npm run clean && npm run build-server && npm run build-client && node .\"",
+    "start-prod": "concurrently --kill-others-on-fail \"npm run clean && npm run build-server && npm run build-client && ts-node -r ./dist/server/index.js \"",
     "dev": "concurrently --kill-others-on-fail \"nodemon\" \"npm start --prefix client\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "cd server && eslint **/*.ts --ignore-pattern extlib.d.ts && cd client && eslint client/**/*.tsx?"

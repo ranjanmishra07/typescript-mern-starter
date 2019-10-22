@@ -6,11 +6,20 @@
       "rootDir": "..",
       "lib": ["es6"],
       "moduleResolution": "node",
+      "sourceMap": true,
       "esModuleInterop": true,    
       "allowSyntheticDefaultImports": true,
       "baseUrl": "./",
+      "noImplicitAny": true,
+      "noFallthroughCasesInSwitch": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "strictNullChecks": true, 
     },
     "exclude": [
       "../node_modules"
+    ],
+    "include": [
+      "**/*.ts"
     ]
   }
