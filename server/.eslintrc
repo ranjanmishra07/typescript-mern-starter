@@ -1,0 +1,67 @@
+{
+    "extends": [
+      "airbnb",
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier",
+      "prettier/standard",
+      "prettier/@typescript-eslint"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint"],
+    "parserOptions": {
+      "ecmaVersion": 2017,
+      "project": "./tsconfig.json"
+    },
+    "rules": {
+      "@typescript-eslint/array-type": ["error", "array-simple"],
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/explicit-member-accessibility": "off",
+      "@typescript-eslint/indent": "off",
+      "@typescript-eslint/interface-name-prefix": "off",
+      "@typescript-eslint/member-delimiter-style": [
+        "off",
+        {
+          "multiline": {
+            "delimiter": "semi",
+            "requireLast": true
+          },
+          "singleline": {
+            "delimiter": ["semi", "comma"],
+            "requireLast": false
+          }
+        }
+      ],
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-non-null-assertion": "off",
+      "@typescript-eslint/no-use-before-define": [
+        "error",
+        {
+          "classes": true,
+          "functions": false
+        }
+      ],
+      "class-methods-use-this": "off",
+      "import/no-deprecated": "error",
+      "import/no-unresolved": "error",
+      "import/order": "error",
+      "import/prefer-default-export": "off",
+      "lines-between-class-members": "off",
+      "no-else-return": "off",
+      "no-return-await": "error",
+      "no-use-before-define": "off",
+      "require-await": "error"
+    },
+    "settings": {
+      "import/parsers": {
+        "@typescript-eslint/parser": [".ts"]
+      },
+      "import/resolver": {
+        "node": {
+          "extensions": [".ts", ".js"]
+        }
+      }
+    }
+  }
+  

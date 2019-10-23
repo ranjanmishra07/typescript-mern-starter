@@ -9,7 +9,7 @@
       "sourceMap": true,
       "esModuleInterop": true,    
       "allowSyntheticDefaultImports": true,
-      "baseUrl": "./",
+      "allowJs": true,
       "noImplicitAny": true,
       "noFallthroughCasesInSwitch": true,
       "noUnusedLocals": true,
