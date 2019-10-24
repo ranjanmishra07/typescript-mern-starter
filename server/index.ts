@@ -3,6 +3,7 @@ import express from 'express';
 import path from 'path';
 import config from './config';
 import { getHomeRouter } from './controllers/home';
+import Db from './models/db';
 // import Db from './models/pg';
 const getAPIRouter = () =>
   express
@@ -11,8 +12,7 @@ const getAPIRouter = () =>
     .use('/home', getHomeRouter())
 
 async function main() {
-//   await Db.init();
-
+  await Db.init();
   const app = express()
     .disable('x-powered-by')
     .enable('trust proxy')

@@ -1,14 +1,13 @@
-import { IUser } from "../schemas/user.model";
-import { getCollection } from "./mongo-connection";
+import {  userModel, IUser } from "../schemas/user.model";
 
 export class User {
-    async getUser(): Promise<IUser> {
-        const userCol = await getCollection('user');
-        const res: IUser[] = await userCol.find().toArray();
-        return res[0];
-    }
-
-    // async postUser(user: IUser){
-        
+    // // static userCollection = userModel.collection;
+    db: IUser = new userModel();
+    // constructor(db: IUser) {
+    //     this.db = db;
     // }
+    createUser(user: IUser) {
+        console.log('user incoming', user);
+        userModel.create(user).then(() => console.log('saved user')).catch(e=> console.log('err in saving', e));
+    }
 }

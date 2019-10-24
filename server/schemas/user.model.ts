@@ -1,10 +1,21 @@
-export interface IUser {
- name: string,
- email: string,
- status: User
+import { Schema, model, Model, Document } from 'mongoose';
+
+export interface IUser extends Document {
+    name: string,
+    email: string,
 } 
 
-export enum User {
-    admin = 'admin',
-    supervisor = 'supervisor'
-}
+const UserSchema: Schema = new Schema<Document>({
+    name: {
+        type: String,
+        required: true,
+        lowercase: true
+    },
+    email: {
+        type: String,
+        required: true,
+        lowercase: true
+    }
+});
+
+export const userModel: Model<IUser> =  model<IUser>('user', UserSchema);
