@@ -6,6 +6,10 @@ export class User {
     // constructor(db: IUser) {
     //     this.db = db;
     // }
+    async getUsers() {
+         const users = await userModel.collection.find().toArray();
+         return users;
+    }
     createUser(user: IUser) {
         console.log('user incoming', user);
         userModel.create(user).then(() => console.log('saved user')).catch(e=> console.log('err in saving', e));

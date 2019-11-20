@@ -10,5 +10,5 @@ const ENV = process.env;
 
 export default {
   port: parseInt(ENV.PORT || '3000', 10),
-  serviceMongoDB: 'mongodb://localhost:27017/workflow'
+  serviceMongoDB: 'mongodb://localhost:27018/workflow'
 };

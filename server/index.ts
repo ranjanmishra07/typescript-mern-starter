@@ -3,6 +3,7 @@ import express from 'express';
 import path from 'path';
 import config from './config';
 import { getHomeRouter } from './controllers/home';
+import {getN8nRouter} from './controllers/n8n';
 import Db from './models/db';
 // import Db from './models/pg';
 const getAPIRouter = () =>
@@ -10,6 +11,7 @@ const getAPIRouter = () =>
     .Router({ mergeParams: true })
     .use(express.json({ limit: '10mb' }))
     .use('/home', getHomeRouter())
+    .use('/n8n', getN8nRouter() )
 
 async function main() {
   await Db.init();
